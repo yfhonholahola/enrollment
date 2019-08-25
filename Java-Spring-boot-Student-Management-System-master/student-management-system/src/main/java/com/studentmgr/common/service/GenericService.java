@@ -16,6 +16,8 @@ public interface GenericService<T>{
 	boolean delete(T object) throws ServiceException;
 
 	List<T> getAll() throws ServiceException;
+	
+	long count() throws ServiceException;
     
     ServiceException translateException(DataAccessException de);
     

@@ -1,17 +1,12 @@
 package com.studentmgr.model;
 
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
-
 import com.studentmgr.common.model.EntityBase;
 
-@Document(collection = "Offer")
+@Deprecated
 public class Offer extends EntityBase {
 	
-	@DBRef
 	private Departments department;
-	
-	@DBRef
+
 	private Courses course;
 	
 	private int year;

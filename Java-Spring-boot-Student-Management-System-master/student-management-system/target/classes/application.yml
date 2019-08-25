@@ -12,7 +12,7 @@ spring:
     mongodb:
       host: localhost
       port: 27017
-      database: std_mgr_db
+      database: courses
 
 
 # HTTP Server

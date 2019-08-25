@@ -62,6 +62,8 @@ public interface GenericDao<T> {
 	 *             - throws if an error occurs
 	 */
 	void modify(T object) throws DataAccessException;
+	
+	long count() throws DataAccessException;
 
 	MongoOperations getMongoOperations();
 

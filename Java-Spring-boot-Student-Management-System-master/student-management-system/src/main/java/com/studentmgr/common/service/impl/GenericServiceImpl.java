@@ -65,6 +65,15 @@ public class GenericServiceImpl<T> implements GenericService<T> {
 			throw translateException(de);
 		}
 	}
+	
+	@Override
+	public long count() throws ServiceException{
+		try{
+			return genericDao.count();
+		}catch(DataAccessException de){
+			throw translateException(de);
+		}
+	}	
 
 	@Override
 	public ServiceException translateException(DataAccessException de) {

@@ -1,19 +1,34 @@
 package com.studentmgr.model;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
-import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Field;
 
-import com.studentmgr.common.model.EntityBase;
+public class Students {
 
-@Document(collection = "Students")
-public class Students extends EntityBase {
-
+	@Field("studentid")
+	@Indexed
 	private BigDecimal studentID;
 	
+	@Field("stuname")
 	private String stuName;
 	
-	private String dOB;
+	@Field("dob")
+	private Date dOB;
+
+	public Students() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Students(BigDecimal studentID, String stuName, Date dOB) {
+		super();
+		this.studentID = studentID;
+		this.stuName = stuName;
+		this.dOB = dOB;
+	}
 
 	public BigDecimal getStudentID() {
 		return studentID;
@@ -31,12 +46,17 @@ public class Students extends EntityBase {
 		this.stuName = stuName;
 	}
 
-	public String getdOB() {
+	public Date getdOB() {
 		return dOB;
 	}
 
-	public void setdOB(String dOB) {
+	public void setdOB(Date dOB) {
 		this.dOB = dOB;
+	}
+
+	@Override
+	public String toString() {
+		return "Students [studentID=" + studentID + ", stuName=" + stuName + ", dOB=" + dOB + "]";
 	}
 	
 	

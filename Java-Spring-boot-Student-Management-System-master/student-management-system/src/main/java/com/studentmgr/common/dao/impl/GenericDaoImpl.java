@@ -113,4 +113,15 @@ public class GenericDaoImpl<T> implements GenericDao<T> {
 	public MongoOperations getMongoOperations() {
 		return mongoOperations;
 	}
+
+	@Override
+	public long count() throws DataAccessException {
+		if (logger.isDebugEnabled())
+			logger.debug("type {} count", type);
+		try {
+			return mongoOperations.count(new Query(), type);			
+		} catch (Exception e) {
+			throw new DataAccessException(e);
+		}
+	}
 }

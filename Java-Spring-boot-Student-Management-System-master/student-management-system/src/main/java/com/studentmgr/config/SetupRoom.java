@@ -8,6 +8,7 @@ import com.studentmgr.model.Room;
 import com.studentmgr.service.RoomService;
 
 @Component
+@Deprecated
 public class SetupRoom {
 
 	@Autowired

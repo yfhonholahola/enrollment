@@ -2,23 +2,28 @@ package com.studentmgr.model;
 
 import java.util.Date;
 
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Field;
 
-import com.studentmgr.common.model.EntityBase;
+public class Enrolled {
 
-@Document(collection = "Enrolled")
-public class Enrolled extends EntityBase {
-
-	@DBRef
+	@Field("student")
 	private Students student;
 	
-	private int year;
-	
-	@DBRef
-	private Courses course;
-	
+	@Field("enroldate")
+	@Indexed
 	private Date enrolDate;
+
+	public Enrolled() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Enrolled(Students student, Date enrolDate) {
+		super();
+		this.student = student;
+		this.enrolDate = enrolDate;
+	}
 
 	public Students getStudent() {
 		return student;
@@ -28,28 +33,17 @@ public class Enrolled extends EntityBase {
 		this.student = student;
 	}
 
-	public int getYear() {
-		return year;
-	}
-
-	public void setYear(int year) {
-		this.year = year;
-	}
-
-	public Courses getCourse() {
-		return course;
-	}
-
-	public void setCourse(Courses course) {
-		this.course = course;
-	}
-
 	public Date getEnrolDate() {
 		return enrolDate;
 	}
 
 	public void setEnrolDate(Date enrolDate) {
 		this.enrolDate = enrolDate;
+	}
+
+	@Override
+	public String toString() {
+		return "Enrolled [student=" + student.toString() + ", enrolDate=" + enrolDate + "]";
 	}
 	
 	
