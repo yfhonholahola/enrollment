@@ -14,7 +14,8 @@ public class Departments {
 
 	public Departments() {
 		super();
-		// TODO Auto-generated constructor stub
+		this.deptName = "";
+		this.location = "";
 	}
 
 	public Departments(String deptName, String location) {

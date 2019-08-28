@@ -1,5 +1,6 @@
 package com.studentmgr.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import org.springframework.util.StringUtils;
 import com.studentmgr.common.model.EntityBase;
 
 @Document(collection = "Courses")
-public class Courses extends EntityBase {
+public class Courses extends EntityBase implements Serializable  {
 	@Field("courseid")
 	private String courseID;
 	

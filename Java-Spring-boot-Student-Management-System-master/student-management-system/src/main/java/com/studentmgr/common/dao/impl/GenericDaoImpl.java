@@ -108,6 +108,19 @@ public class GenericDaoImpl<T> implements GenericDao<T> {
 		}
 
 	}
+	
+	@Override
+	public void deleteById(Object id) throws DataAccessException {
+		if (logger.isDebugEnabled())
+			logger.debug("type {} deleteById", type);
+		try {
+			Query query = new Query(Criteria.where("_id").is(id));
+			
+			mongoOperations.remove(query, type);
+		} catch (Exception e) {
+			throw new DataAccessException(e);
+		}
+	}	
 
 	@Override
 	public MongoOperations getMongoOperations() {

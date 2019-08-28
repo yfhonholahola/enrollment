@@ -64,6 +64,8 @@ public interface GenericDao<T> {
 	void modify(T object) throws DataAccessException;
 	
 	long count() throws DataAccessException;
+	
+	void deleteById(Object id) throws DataAccessException;
 
 	MongoOperations getMongoOperations();
 

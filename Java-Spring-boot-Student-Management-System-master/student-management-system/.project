@@ -31,4 +31,11 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.m2e.core.maven2Nature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/main/java/com/studentmgr/utils</name>
+			<type>2</type>
+			<location>C:/Users/Alfred01/Documents/CITYUSCOPE/COURSE/{183-SU-ADS} ADVANCED DATABASE SYSTEMS/PROJECT/CODE/Java-Spring-boot-Student-Management-System-master/student-management-system/src/main/java/com/studentmgr/utils</location>
+		</link>
+	</linkedResources>
 </projectDescription>

@@ -14,6 +14,8 @@ public interface GenericService<T>{
 	T edit(T obj) throws ServiceException;
 
 	boolean delete(T object) throws ServiceException;
+	
+	boolean deleteById(Object id) throws ServiceException;
 
 	List<T> getAll() throws ServiceException;
 	

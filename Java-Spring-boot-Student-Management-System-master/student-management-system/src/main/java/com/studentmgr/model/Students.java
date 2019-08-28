@@ -20,7 +20,9 @@ public class Students {
 
 	public Students() {
 		super();
-		// TODO Auto-generated constructor stub
+		this.studentID = BigDecimal.ZERO;
+		this.stuName = "";
+		this.dOB = null;
 	}
 
 	public Students(BigDecimal studentID, String stuName, Date dOB) {

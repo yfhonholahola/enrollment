@@ -67,6 +67,16 @@ public class GenericServiceImpl<T> implements GenericService<T> {
 	}
 	
 	@Override
+	public boolean deleteById(Object object) throws ServiceException{
+		try{
+			genericDao.deleteById(object);
+			return true;
+		}catch(DataAccessException de){
+			throw translateException(de);
+		}
+	}	
+	
+	@Override
 	public long count() throws ServiceException{
 		try{
 			return genericDao.count();

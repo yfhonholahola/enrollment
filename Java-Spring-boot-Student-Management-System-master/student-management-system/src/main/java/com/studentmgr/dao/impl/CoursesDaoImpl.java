@@ -161,9 +161,11 @@ public class CoursesDaoImpl extends GenericDaoImpl<Courses> implements CoursesDa
 			logger.debug("getCourseByDeptStudentYear");
 		
 		try {
-			Query query = (dept != null && year != 0) ? new Query(Criteria.where("enrolled").elemMatch(Criteria.where("student.studentid").is(student.getStudentID()).and("enroldate").gte(dateFormat.parse(String.format("%s-01-01 00:00:00", year))).lte(dateFormat.parse(String.format("%s-01-01 00:00:00", year+1))))) : new Query();
+			Query query = (dept != null && student != null && year != 0) ? new Query(Criteria.where("department.deptname").is(dept.getDeptName()).and("enrolled").elemMatch(Criteria.where("student.studentid").is(student.getStudentID()).and("enroldate").gte(dateFormat.parse(String.format("%s-01-01 00:00:00", year))).lte(dateFormat.parse(String.format("%s-01-01 00:00:00", year+1))))) : new Query();
 			query.with(new Sort(Sort.Direction.ASC, "title"));
 			query.limit(1000);
+			
+			logger.info(query.toString());
 			
 			return super.mongoOperations.find(query, Courses.class);						
 		} catch (Exception e) {

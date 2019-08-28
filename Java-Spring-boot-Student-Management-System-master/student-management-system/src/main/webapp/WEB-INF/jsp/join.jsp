@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="en">
 <head>
+
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
@@ -88,7 +89,7 @@
 						<h6 class="collapse-header">Student Menu:</h6>
 						<a class="collapse-item" href="/studentCount">Student Count</a> <a
 							class="collapse-item" href="/studentEnrollment">Student
-							Enrollment</a> <a class="collapse-item" href="/join">Join
+							Enrollment</a> <a class="collapse-item" href="/update">Join
 							Course</a>
 					</div>
 				</div></li>
@@ -110,38 +111,13 @@
 
 			<!-- Main Content -->
 			<div id="content">
-
 				<!-- Topbar -->
 				<nav
 					class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-					<!-- Sidebar Toggle (Topbar) -->
-					<button id="sidebarToggleTop"
-						class="btn btn-link d-md-none rounded-circle mr-3">
-						<i class="fa fa-bars"></i>
-					</button>
-
-					<!-- Topbar Search -->
-					<form
-						class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-						<div class="input-group">
-							<input type="text" class="form-control bg-light border-0 small"
-								placeholder="Search for..." aria-label="Search"
-								aria-describedby="basic-addon2">
-							<div class="input-group-append">
-								<button class="btn btn-primary" type="button">
-									<i class="fas fa-search fa-sm"></i>
-								</button>
-								<a class="btn btn-info" href="#" data-toggle="modal"
-									data-target="#searchModal"> <i class="fas fa-plus fa-sm"></i>
-								</a>
-							</div>
-						</div>
-					</form>
-
 					<!-- Topbar Navbar -->
 					<ul class="navbar-nav ml-auto">
 
+						<!-- Nav Item - Search Dropdown (Visible Only XS) -->
 						<!-- Nav Item - Alerts -->
 						<li class="nav-item dropdown no-arrow mx-1"><a
 							class="nav-link dropdown-toggle" href="#" id="alertsDropdown"
@@ -202,58 +178,68 @@
 
 				</nav>
 				<!-- End of Topbar -->
-
 				<!-- Begin Page Content -->
 				<div class="container-fluid">
 
-					<h1 class="h3 mb-2 text-gray-800">Course Title</h1>
-					<p class="mb-4">Find the titles of courses offered by the CS
-						department in 2016. <span style="color:red;"><c:out value="${not empty filter ? filter : ''}" /></span>
-					</p>
-
-					<!-- DataTales -->
-					<div class="card shadow mb-4">
-						<div class="card-header py-3">
-							<h6 class="m-0 font-weight-bold text-primary">Course Title
-								DataTables</h6>
-						</div>
-						<div class="card-body">
-							<div class="table-responsive">
-								<table class="table table-bordered" id="dataTable" width="100%"
-									cellspacing="0">
-									<thead>
-										<tr>
-											<th>Title</th>
-										</tr>
-									</thead>
-									<tfoot>
-										<tr>
-											<th>Title</th>
-										</tr>
-									</tfoot>
-									<tbody>
-										<c:forEach items="${result}" var="item">
-											<tr>
-												<td>${item}</td>
-											</tr>
-										</c:forEach>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
+					<!-- Page Heading -->
+					<h1 class="h3 mb-2 text-gray-800">Join Course</h1>
+					<p class="mb-4">Update operation</p>
 
 					<!-- Content Row -->
-					<div class="row"></div>
+					<!-- Content Row -->
+					<div class="row">
 
+
+						<!-- Detail -->
+						<div class="col-lg-6">
+							<form method="post">
+								<div class="card position-relative">
+									<div class="card-header py-3">
+										<h6 class="m-0 font-weight-bold text-primary">Detail</h6>
+									</div>
+									<div class="card-body">
+
+										<div class="form-group row">
+											<label for="course" class="col-sm-4 col-form-label">Course</label>
+											<div class="col-sm-8">
+												<select class="form-control" id="course">
+													<c:forEach items="${crsList}" var="item">
+														<option value="${item.id}">${item.title}</option>
+													</c:forEach>
+												</select>
+											</div>
+										</div>
+
+										<div class="form-group row">
+											<label for="student" class="col-sm-4 col-form-label">Student</label>
+											<div class="col-sm-8">
+												<select class="form-control" id="std" name="std">
+													<c:forEach items="${stdList}" var="item">
+														<option value="${item.studentID}">${item.stuName}</option>
+													</c:forEach>
+												</select>
+											</div>
+										</div>
+									</div>
+
+									<br /> <input type="submit" value="save"
+										class="btn btn-primary btn-block" />
+							</form>
+
+						</div>
+
+					</div>
+
+					<!-- Student list -->
+					<div class="col-lg-6"></div>
 				</div>
-				<!-- /.container-fluid -->
-
 			</div>
-			<!-- End of Main Content -->
+			<!-- /.container-fluid -->
 
 		</div>
-		<!-- End of Content Wrapper -->
+		<!-- End of Main Content -->
+	</div>
+	<!-- End of Content Wrapper -->
 
 	</div>
 	<!-- End of Page Wrapper -->
@@ -286,47 +272,6 @@
 		</div>
 	</div>
 
-	<!-- Advanced Search Modal -->
-	<div class="modal fade bd-example-modal-lg" id="searchModal"
-		tabindex="-1" role="dialog" aria-labelledby="searchModalLabel"
-		aria-hidden="true">
-		<div class="modal-dialog modal-lg modal-dialog-centered"
-			role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="searchModalLabel">Advanced Search</h5>
-					<button class="close" type="button" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">×</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<form id="modal" method="post">
-						<div class="form-group">
-							<label for="departmentFormControlSelect">Department</label> <select
-								class="form-control" id="departmentFormControlSelect" name="dept">
-								<c:forEach items="${deptList}" var="item">
-									<option value="${item.deptName}">${item.deptName}</option>
-								</c:forEach>
-							</select>
-						</div>
-
-						<div class="form-group">
-							<label class="col-form-label" for="yearFormControlSelect">Year</label>
-							<input type="number" class="form-control"
-								id="yearFormControlSelect" placeholder="Year" name="year" />
-						</div>																					
-					</form>
-				</div>
-				<div class="modal-footer">					
-					<button class="btn btn-secondary" type="button"
-						data-dismiss="modal">Cancel</button>
-					<button class="btn btn-primary" type="submit" form="modal">Search</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
 	<!-- Bootstrap core JavaScript-->
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -343,7 +288,6 @@
 
 	<!-- Page level custom scripts -->
 	<script src="js/demo/datatables-demo.js"></script>
-
 
 </body>
 
