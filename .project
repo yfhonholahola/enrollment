@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>student-management-system</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.springframework.ide.eclipse.core.springbuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.m2e.core.maven2Builder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.springframework.ide.eclipse.boot.validation.springbootbuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.springframework.ide.eclipse.core.springnature</nature>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+		<nature>org.eclipse.m2e.core.maven2Nature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>src/main/java/com/studentmgr/utils</name>
+			<type>2</type>
+			<location>C:/Users/Alfred01/Documents/CITYUSCOPE/COURSE/{183-SU-ADS} ADVANCED DATABASE SYSTEMS/PROJECT/CODE/Java-Spring-boot-Student-Management-System-master/student-management-system/src/main/java/com/studentmgr/utils</location>
+		</link>
+		<link>
+			<name>src/main/webapp/WEB-INF/jsp/join.jsp</name>
+			<type>1</type>
+			<location>C:/Users/Alfred01/Documents/CITYUSCOPE/COURSE/{183-SU-ADS} ADVANCED DATABASE SYSTEMS/PROJECT/CODE/Java-Spring-boot-Student-Management-System-master/student-management-system/src/main/webapp/WEB-INF/jsp/join.jsp</location>
+		</link>
+		<link>
+			<name>src/main/webapp/WEB-INF/jsp/update.jsp</name>
+			<type>1</type>
+			<location>C:/Users/Alfred01/Documents/CITYUSCOPE/COURSE/{183-SU-ADS} ADVANCED DATABASE SYSTEMS/PROJECT/CODE/Java-Spring-boot-Student-Management-System-master/student-management-system/src/main/webapp/WEB-INF/jsp/update.jsp</location>
+		</link>
+		<link>
+			<name>src/main/java/com/studentmgr/utils/editors/EnrolledEditor.java</name>
+			<type>1</type>
+			<location>C:/Users/Alfred01/Documents/CITYUSCOPE/COURSE/{183-SU-ADS} ADVANCED DATABASE SYSTEMS/PROJECT/CODE/Java-Spring-boot-Student-Management-System-master/student-management-system/src/main/java/com/studentmgr/utils/editors/EnrolledEditor.java</location>
+		</link>
+	</linkedResources>
+</projectDescription>
